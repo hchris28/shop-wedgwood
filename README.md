@@ -75,7 +75,9 @@ This website was created with Gatsby. Some familiarity with Gatsby and React wil
 
 6.  **Deploying the site**
 
-    To deploy the site run the command...
+    The site is deployed each time a commit is pushed to the master branch or a pull request is merged into the master branch. The workflow is defined in .github/workflows/build_and_deploy.yml.
+
+    To deploy the site from your local working copy run the command...
 
       ```shell
       npm run deploy
