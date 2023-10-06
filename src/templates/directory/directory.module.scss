@@ -1,0 +1,19 @@
+
+@import '../../styles/mixins';
+
+.container {
+    @include floating-container;
+}
+
+.header {
+    margin: -25px 0 25px 0;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+
+    h1 {
+        margin: 0;
+    }
+}

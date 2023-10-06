@@ -1,0 +1,16 @@
+@import '../../styles/globals';
+
+.container {
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    padding: 25px;
+    border-top: solid 1px rgba($color-med-green, 0.1);
+
+    @media screen and (min-width: #{ $max-content-width + 50px }) {
+        padding-left: calc((100vw - #{ $max-content-width }) / 2);
+        padding-right: calc((100vw - #{ $max-content-width }) / 2);
+    }
+}

@@ -1,0 +1,119 @@
+
+@import '../../styles/globals';
+@import '../../styles/mixins';
+
+$break-stack-containers: 950px;
+$break-stack-directory-nav: 600px;
+
+.container {
+    background-image: url(./home-hero.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    padding: $layout-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (min-width: $break-add-layout-padding) {
+        padding: $layout-padding;
+    }
+
+    @media screen and (min-width: #{ $max-content-width + ($layout-padding * 2) }) {
+        padding-left: calc((100vw - #{ $max-content-width }) / 2);
+        padding-right: calc((100vw - #{ $max-content-width }) / 2);
+    }
+
+    @media screen and (min-width: $break-stack-containers) {
+        flex-direction: row;
+    }
+}
+
+.featuredBusinessContainer {
+    width: 100%;
+
+    @media screen and (min-width: $break-stack-containers) {
+        width: 30%;
+    }
+}
+
+.directoryNavContainer {
+    width: 100%;
+    margin-bottom: 50px;
+
+    @media screen and (min-width: $break-stack-containers) {
+        width: 65%;
+        margin-bottom: 0;
+    }
+}
+
+
+.featuredBusinessCard {
+    background-color: rgba(#fff, 0.9);
+    overflow: hidden;
+    @include box-shadow;
+    @include rounded-box;
+}
+
+.directoryNav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: rgba(#fff, 0.9);
+    @include box-shadow;
+    @include rounded-box;
+}
+
+.directoryNavItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    padding: 25px;
+    flex: 1 1;
+    margin: 1rem;
+
+    p {
+        margin: 0;
+    }
+
+    @media screen and (min-width: $break-stack-directory-nav) {
+        flex-direction: row;
+    }
+}
+
+.directoryNavIcon {
+    background: transparent;
+    margin: 0 auto 1rem auto;
+	flex-basis: 100px;
+	flex-grow: 0;
+	flex-shrink: 0;
+    color: $color-med-green;
+
+    @media screen and (min-width: $break-stack-directory-nav) {
+        margin-right: 2rem;
+    }
+}
+
+.linksContainer {
+    flex: auto;
+}
+
+.directoryLink {
+    font-weight: 900;
+    padding: 0;
+    margin: 0 0 10px 0;
+    display: block;
+    font-size: 2rem;
+    text-decoration: none;
+    text-align: center;
+
+    @media screen and (min-width: $break-stack-directory-nav) {
+        text-align: left;
+    }
+}

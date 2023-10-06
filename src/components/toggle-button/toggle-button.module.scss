@@ -1,0 +1,23 @@
+@import '../../styles/globals';
+
+.button {
+    border: none;
+    border-radius: 500px;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 15px;
+    margin-right:  15px;
+    cursor: pointer;
+}
+
+.buttonOff {
+    background-color: #eee;
+}
+
+.buttonOn {
+    background-color: rgba($color-med-green, 0.5);
+}
+
+.icon {
+    margin-right: 10px;
+}

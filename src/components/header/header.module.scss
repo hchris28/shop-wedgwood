@@ -1,0 +1,144 @@
+@import '../../styles/globals';
+
+$break-full-menu: 500px;
+$menu-width: 100vw;
+
+.container {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(rgba($color-med-green, 0.9), $color-med-green);
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.content {
+    padding: 25px;
+
+    @media screen and (min-width: #{ $max-content-width + 50px }) {
+        padding-left: calc((100vw - #{ $max-content-width }) / 2);
+        padding-right: calc((100vw - #{ $max-content-width }) / 2);
+    }
+
+    a {
+        text-decoration: none;
+
+        &:link, &:visited {
+            color: $color-med-green;
+        }
+    }
+
+    nav {
+        margin-top: 1rem;
+        display: flex;
+        
+        a {      
+            font-weight: 400;
+        }
+    }
+}
+
+.site-title {
+    font-family: "Sansita", serif;
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    margin-right: 64px;
+    color: #fff;
+
+    @media screen and (min-width: $break-full-menu) {
+        margin-right: 0;
+        font-size: 4rem;
+    }
+}
+
+.logo {
+    margin-right: 1rem;
+    display: none;
+
+    @media screen and (min-width: $break-full-menu) {
+        display: inline-block;
+    }
+}
+
+.menuToggle {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    padding: 10px;
+    z-index: 1;
+
+    @media screen and (min-width: $break-full-menu) {
+        display: none;
+    }
+}
+
+.menuContainer {
+    nav {
+        transition: all ease-in-out 0.2s;
+        position: fixed; 
+        top: 0;
+        right: 0;
+        width: $menu-width;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: rgba(255, 255, 255, .975);
+        padding: 25px;
+
+        a {
+            padding: 10px 0;
+            text-align: center;
+            font-size: 2rem;
+
+            &:first-child {
+                margin-top: 50px;
+            }
+        }
+
+        @media screen and (min-width: $break-full-menu) {
+            position: relative;
+            top: auto;
+            right: auto;
+            width: auto;
+            height: auto;
+            display: block;
+            background: transparent;
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: none;
+
+            a {
+                text-decoration: none;
+                font-size: 1rem;
+        
+                &:link, &:visited {
+                    color: #fff;
+                }
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:not(:last-child) {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
+
+.menuCollapsed {
+    nav {
+        right: -$menu-width;
+
+        @media screen and (min-width: $break-full-menu) {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy Shop Wedgwood site
+    runs-on: ubuntu-latest
+    env:
+      GATSBY_GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '^18.16.0'
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Install Gatsby CLI
+        run: npm install -g gatsby-cli@5.9.0
+
+      - name: Build
+        run: gatsby build
+      
+      - name: Verify build
+        run: ls -la public
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server:  ${{ secrets.FTP_SERVER }}
+          username:  ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: /shop.wedgwoodcc.org/public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

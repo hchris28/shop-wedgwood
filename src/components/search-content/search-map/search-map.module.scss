@@ -1,0 +1,51 @@
+
+@import "../../../styles/globals";
+@import "../../../styles/mixins";
+
+.mapContainer {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.mapShopDetail {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 325px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.mapShopDetailClose {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 5px);
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    padding: 0;
+    background-color: transparent;
+    color: #444;
+    cursor: pointer;
+
+    svg {
+        height: 2rem;
+    }
+
+    span {
+        @include sr-only;
+    }
+}
+
+.activeMarker {
+    color: $color-med-red;
+}

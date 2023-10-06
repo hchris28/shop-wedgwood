@@ -1,0 +1,21 @@
+
+@import '../../styles/globals';
+
+.container {
+    width: 36px; 
+    height: 36px;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    cursor: pointer;
+    text-align: center;
+}
+
+.icon {
+    color: $color-med-green;
+    font-size: 36px !important;
+    margin-right: 5px;
+}
+
+.label {
+    font-size: 14px;
+}

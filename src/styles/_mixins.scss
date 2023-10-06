@@ -1,0 +1,47 @@
+@import "./globals";
+
+@mixin box-shadow {
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+@mixin rounded-box {
+    border-radius: 10px;
+}
+
+@mixin floating-container {
+    overflow: hidden;
+    padding: 25px;
+    
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-color: $color-med-green;
+        z-index: -1;
+    }
+
+    @media screen and (min-width: $break-add-layout-padding) {
+        @include box-shadow;
+        @include rounded-box;
+        margin-top: -125px;
+    }
+}
+
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+}

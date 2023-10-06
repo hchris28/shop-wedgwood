@@ -1,0 +1,36 @@
+
+@import '../../styles/globals';
+
+.container {
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    main {
+        flex-grow: 1;
+    }
+}
+
+.content {
+    padding: 0;
+    background-color: rgba($color-med-green, 0.05);
+
+    @media screen and (min-width: $break-add-layout-padding) {
+        padding: $layout-padding;
+    }
+
+    @media screen and (min-width: #{ $max-content-width + ($layout-padding * 2) }) {
+        padding-left: calc((100vw - #{ $max-content-width }) / 2);
+        padding-right: calc((100vw - #{ $max-content-width }) / 2);
+    }
+}
+
+.hero {
+    background-color: #eee;
+    width: 100%;
+    // min-height: 500px;
+    overflow: hidden;
+}
